@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/music")
+@RequestMapping("/api/music")
 public class MusicController {
 
     @Autowired
     private MusicService musicService;
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public void createMusic(@RequestBody MusicInfo musicInfo) {
         musicService.createMusic(musicInfo);
     }
