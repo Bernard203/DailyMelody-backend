@@ -31,7 +31,7 @@ public class UserVO {
         user.setPhone(this.phone);
         user.setPassword(this.password);
         user.setCreateTime(this.createTime);
-        user.setkeyword(this.keyword);
+        user.setKeyword(this.keyword);
         return user;
     }
 }
