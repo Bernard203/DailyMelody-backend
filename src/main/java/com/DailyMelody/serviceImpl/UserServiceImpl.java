@@ -30,9 +30,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     SecurityUtil securityUtil;
 
-    @Autowired
-    StoreRepository storeRepository;
-
     @Override
     public Boolean register(UserVO userVO) {
         User user = userRepository.findByPhone(userVO.getPhone());
@@ -57,9 +54,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserVO getInformation() {
         User user=securityUtil.getCurrentUser();
-        if (user.getRole()==RoleEnum.STAFF) {
-            return wrapWithStoreName(user.toVO());
-        }
         return user.toVO();
     }
 
@@ -72,20 +66,7 @@ public class UserServiceImpl implements UserService {
         if (userVO.getName()!=null){
             user.setName(userVO.getName());
         }
-        if (userVO.getAddress()!=null){
-            user.setAddress(userVO.getAddress());
-        }
         userRepository.save(user);
         return true;
-    }
-
-    private UserVO wrapWithStoreName(UserVO userVO){
-        Integer storeId = userVO.getStoreId();
-        if (storeId==null){
-            return userVO;
-        }
-        Store store = storeRepository.findById(storeId).get();
-        userVO.setStoreName(store.getName());
-        return userVO;
     }
 }

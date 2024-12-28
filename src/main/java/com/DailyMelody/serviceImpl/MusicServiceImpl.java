@@ -10,7 +10,12 @@ import com.DailyMelody.po.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -83,8 +88,34 @@ public class MusicServiceImpl implements MusicService {
     }
 
     private String getWeather() {
-        // 调用天气 API，这里模拟返回晴天
-        return "Sunny";
+        // 调用天气 API
+        Map<String, String> weatherMap = new HashMap<>();
+        weatherMap.put("晴", "sunny");
+        weatherMap.put("雨", "rainy");
+        weatherMap.put("雪", "snowy");
+        weatherMap.put("多云", "cloudy");
+        weatherMap.put("阴", "overcast");
+        weatherMap.put("雾", "foggy");
+        String weather = "";
+        try{
+            URL url = new URL("http://t.weather.itboy.net/api/weather/city/101250601");
+            InputStreamReader isReader =  new InputStreamReader(url.openStream(),"UTF-8");//“UTF- 8”万国码，可以显示中文，这是为了防止乱码
+            BufferedReader br = new BufferedReader(isReader);//采用缓冲式读入
+            String str;
+            while((str = br.readLine()) != null){
+                String regex="\\p{Punct}+";
+                String digit[]=str.split(regex);
+//                System.out.println('\n'+"天气:"+digit[67]+" "+digit[63]+digit[65]);
+                weather = digit[67];
+            }
+            br.close();
+            isReader.close();
+        }
+        catch(Exception exp){
+            System.out.println(exp);
+        }
+
+        return weatherMap.getOrDefault(weather, "unknown");
     }
 
     private String getCurrentDate() {
