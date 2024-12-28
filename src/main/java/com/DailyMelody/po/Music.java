@@ -43,3 +43,4 @@ public class Music {
         return new MusicInfo(this.name, this.sentence, this.musicUrl, this.lrcUrl, this.imgUrl);
     }
 }
+

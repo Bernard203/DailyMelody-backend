@@ -39,3 +39,4 @@ public class Collection {
         return new CollectionInfo(this.musicId, this.date, this.festival, this.thought);
     }
 }
+

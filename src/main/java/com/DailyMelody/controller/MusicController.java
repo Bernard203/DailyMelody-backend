@@ -25,6 +25,11 @@ public class MusicController {
         return musicService.getMusicById(musicId);
     }
 
+    @GetMapping("/getMusic")
+    public MusicInfo getMusic() {
+        return musicService.getRecommendedMusic();
+    }
+
     @PostMapping("/collection")
     public void addCollection(@RequestBody CollectionInfo collectionInfo) {
         musicService.addCollection(collectionInfo);
@@ -40,3 +45,4 @@ public class MusicController {
         return musicService.getCollectionById(collectionId);
     }
 }
+

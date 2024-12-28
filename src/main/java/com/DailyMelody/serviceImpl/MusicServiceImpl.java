@@ -22,6 +22,8 @@ public class MusicServiceImpl implements MusicService {
     @Autowired
     private CollectionRepository collectionRepository;
 
+
+
     @Override
     public void createMusic(MusicInfo musicInfo) {
         Music music = new Music();
@@ -61,4 +63,57 @@ public class MusicServiceImpl implements MusicService {
         Collection collection = collectionRepository.findById(collectionId).orElseThrow(() -> new RuntimeException("Collection not found"));
         return new CollectionInfo(collection.getMusicId(), collection.getDate(), collection.getFestival(), collection.getThought());
     }
+
+    @Override
+    public MusicInfo getRecommendedMusic() {
+        // 获取天气信息（这里假设调用了外部天气 API）
+        String weather = getWeather();
+        String date = getCurrentDate();
+        String festival = getFestival();
+
+        // 根据天气、日期和节日推荐歌曲
+        Music music = recommendMusicBasedOnConditions(weather, date, festival);
+        if (music == null) {
+            throw new RuntimeException("No suitable music found");
+        }
+
+        // 返回 MusicInfo
+        return music.toVO();
+    }
+
+    private String getWeather() {
+        // 调用天气 API，这里模拟返回晴天
+        return "Sunny";
+    }
+
+    private String getCurrentDate() {
+        // 获取当前日期，格式为 yyyy-MM-dd
+        return java.time.LocalDate.now().toString();
+    }
+
+    private String getFestival() {
+        // 根据日期判断节日，这里模拟返回
+        return "Christmas";
+    }
+
+    private Music recommendMusicBasedOnConditions(String weather, String date, String festival) {
+        // 示例逻辑：根据条件筛选音乐（这里直接从数据库随机选一首）
+        List<Music> musicList = musicRepository.findAll();
+
+        if (festival.equals("Christmas")) {
+            return musicList.stream()
+                    .filter(music -> music.getName().contains("Christmas"))
+                    .findFirst()
+                    .orElse(null);
+        } else if (weather.equals("Sunny")) {
+            return musicList.stream()
+                    .filter(music -> music.getName().contains("Sunny"))
+                    .findFirst()
+                    .orElse(null);
+        } else {
+            // 默认返回第一首
+            return musicList.isEmpty() ? null : musicList.get(0);
+        }
+    }
 }
+
