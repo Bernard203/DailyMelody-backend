@@ -1,6 +1,5 @@
 package com.DailyMelody.vo;
 
-import com.DailyMelody.enums.RoleEnum;
 import com.DailyMelody.po.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,26 +20,18 @@ public class UserVO {
 
     private String password;
 
-    private Integer storeId;
-
-    private String address;
-
-    private RoleEnum role;
-
     private Date createTime;
 
-    private String storeName;
+    private String keyword;
 
     public User toPO(){
         User user=new User();
         user.setId(this.id);
-        user.setAddress(this.address);
         user.setName(this.name);
         user.setPhone(this.phone);
-        user.setRole(this.role);
-        user.setStoreId(this.storeId);
         user.setPassword(this.password);
         user.setCreateTime(this.createTime);
+        user.setkeyword(this.keyword);
         return user;
     }
 }

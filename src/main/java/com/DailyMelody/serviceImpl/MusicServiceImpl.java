@@ -32,13 +32,14 @@ public class MusicServiceImpl implements MusicService {
         music.setMusicUrl(musicInfo.getMusicUrl());
         music.setLrcUrl(musicInfo.getLrcUrl());
         music.setImgUrl(musicInfo.getImgUrl());
+        music.setKeyword(musicInfo.getKeyword());
         musicRepository.save(music);
     }
 
     @Override
     public MusicInfo getMusicById(Long musicId) {
         Music music = musicRepository.findById(musicId).orElseThrow(() -> new RuntimeException("Music not found"));
-        return new MusicInfo(music.getName(), music.getSentence(), music.getMusicUrl(), music.getLrcUrl(), music.getImgUrl());
+        return new MusicInfo(music.getName(), music.getSentence(), music.getMusicUrl(), music.getLrcUrl(), music.getImgUrl(), music.getKeyword());
     }
 
     @Override

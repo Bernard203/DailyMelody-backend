@@ -1,10 +1,7 @@
 package com.DailyMelody.serviceImpl;
 
-import com.DailyMelody.enums.RoleEnum;
 import com.DailyMelody.exception.DailyMelodyException;
-import com.DailyMelody.po.Store;
 import com.DailyMelody.po.User;
-import com.DailyMelody.repository.StoreRepository;
 import com.DailyMelody.repository.UserRepository;
 import com.DailyMelody.service.UserService;
 import com.DailyMelody.util.SecurityUtil;

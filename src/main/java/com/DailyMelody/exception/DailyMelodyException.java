@@ -30,36 +30,8 @@ public class DailyMelodyException extends RuntimeException{
         return new DailyMelodyException("名称已经存在!");
     }
 
-    public static DailyMelodyException storeNotExists(){
-        return new DailyMelodyException("店铺不存在!");
-    }
-
-    public static DailyMelodyException productNotExists(){
-        return new DailyMelodyException("商品不存在!");
-    }
-
-    public static DailyMelodyException orderNotExists(){
-        return new DailyMelodyException("订单不存在！");
-    }
-
-    public static DailyMelodyException orderStatusError(){
-        return new DailyMelodyException("订单状态错误！");
-    }
-
-    public static DailyMelodyException stockNotEnough(){
-        return new DailyMelodyException("库存不足！");
-    }
-
     public static DailyMelodyException fullReductionCouponError(){
         return new DailyMelodyException("满减券设置错误！");
-    }
-
-    public static DailyMelodyException couponNotAllowed(){
-        return new DailyMelodyException("该优惠券不支持使用！");
-    }
-
-    public static DailyMelodyException couponGroupNotEnough(){
-        return new DailyMelodyException("优惠券数量不足！");
     }
 
     public static DailyMelodyException payError(){

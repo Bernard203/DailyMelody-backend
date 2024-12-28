@@ -1,6 +1,5 @@
 package com.DailyMelody.po;
 
-import com.DailyMelody.enums.RoleEnum;
 import com.DailyMelody.vo.UserVO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,34 +31,24 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Basic
+    @Column(name = "keyword")
+    private String keyword;
+
     //必须注意，在Java中用驼峰，在MySQL字段中用连字符_
     @Basic
     @Column(name = "create_time")
     private Date createTime;
 
-    @Basic
-    @Column(name = "store_id")
-    private Integer storeId;
-
-    @Basic
-    @Column(name = "address")
-    private String address;
-
-    @Basic
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private RoleEnum role;
-
     public UserVO toVO(){
         UserVO userVO=new UserVO();
         userVO.setId(this.id);
-        userVO.setAddress(this.address);
         userVO.setName(this.name);
-        userVO.setRole(this.role);
-        userVO.setStoreId(this.storeId);
         userVO.setPhone(this.phone);
         userVO.setPassword(this.password);
         userVO.setCreateTime(this.createTime);
+        userVO.setKeyword(this.keyword);
         return userVO;
     }
+
 }

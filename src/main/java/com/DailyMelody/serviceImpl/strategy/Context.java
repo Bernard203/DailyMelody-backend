@@ -1,7 +1,5 @@
 package com.DailyMelody.serviceImpl.strategy;
 
-import com.DailyMelody.enums.CouponTypeEnum;
-
 public class Context {
     private final Double price;
 

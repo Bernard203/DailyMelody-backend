@@ -11,4 +11,5 @@ public class MusicInfo {
     private String musicUrl;
     private String lrcUrl;
     private String imgUrl;
+    private String keyword;
 }
