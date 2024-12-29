@@ -169,26 +169,26 @@ public class MusicServiceImpl implements MusicService {
             for (JsonNode node : listNode) {
                 if (node.get("date").asText().equals(currentDate)) {
                     // 返回部分节日的英文名，如果没有找到则返回 "Unknown Festival"
-                    return festivalMap.getOrDefault(node.get("holiday").asText(), "Unknown Festival");
+                    return festivalMap.getOrDefault(node.get("holiday").asText(), "");
                 }
             }
-            return "No Festival"; // 如果没有找到节日，返回默认值
+            return ""; // 如果没有找到节日，返回默认值
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "Unknown Festival"; // 如果调用失败或解析错误，返回默认值
+            return ""; // 如果调用失败或解析错误，返回默认值
         }
     }
 
     private Music recommendMusicBasedOnConditions(String weather, String date, String festival) {
-        if (!"unknown".equals(weather) && !"Unknown Festival".equals(festival)) {
+        if (!"unknown".equals(weather) && !"".equals(festival)) {
             List<Music> weatherAndFestivalMusic = musicRepository.findByNameContainingBothKeywords(weather, festival);
             if (!weatherAndFestivalMusic.isEmpty()) {
                 return weatherAndFestivalMusic.get(0); // 返回匹配天气和节日关键词的第一首音乐
             }
         }
 
-        if (!"Unknown Festival".equals(festival) && !"No Festival".equals(festival)) {
+        if (!"".equals(festival)) {
             List<Music> festivalMusic = musicRepository.findByKeywordContaining(festival);
             if (!festivalMusic.isEmpty()) {
                 return festivalMusic.get(0); // 返回匹配节日关键词的第一首音乐
