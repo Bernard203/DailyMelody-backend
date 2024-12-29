@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-public class MusicServiceImplTest {
+public class MusicServiceImplTest0 {
 
     @MockBean
     private RestTemplate restTemplate;

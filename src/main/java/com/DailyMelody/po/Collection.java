@@ -23,6 +23,10 @@ public class Collection {
     private Long musicId;
 
     @Basic
+    @Column(name = "music_name")
+    private String musicName;
+
+    @Basic
     @Column(name = "date")
     private String date;
 
@@ -34,9 +38,24 @@ public class Collection {
     @Column(name = "thought")
     private String thought;
 
+    @Basic
+    @Column(name = "imgUrl")
+    private String imgUrl;
+
+    @Basic
+    @Column(name = "sunSet")
+    private String sunSet;
+
+    @Basic
+    @Column(name = "sunRise")
+    private String sunRise;
+
+    @Basic
+    @Column(name = "sentence")
+    private String sentence;
+
     // 将当前实体对象转换为 VO
     public CollectionInfo toVO() {
-        return new CollectionInfo(this.musicId, this.date, this.festival, this.thought);
+        return new CollectionInfo(this.musicId, this.musicName, this.date, this.festival, this.thought, this.imgUrl, this.sunSet, this.sunRise, this.sentence);
     }
 }
-

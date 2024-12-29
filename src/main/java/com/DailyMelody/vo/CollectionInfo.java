@@ -7,7 +7,12 @@ import lombok.Data;
 @AllArgsConstructor
 public class CollectionInfo {
     private Long musicId;
+    private String musicName;
     private String date;
     private String festival;
     private String thought;
+    private String imgUrl;
+    private String sunSet;
+    private String sunRise;
+    private String sentence;
 }

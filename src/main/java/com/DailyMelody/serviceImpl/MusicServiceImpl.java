@@ -3,10 +3,12 @@ package com.DailyMelody.serviceImpl;
 import com.DailyMelody.repository.MusicRepository;
 import com.DailyMelody.repository.CollectionRepository;
 import com.DailyMelody.service.MusicService;
+import com.DailyMelody.vo.MusicDetails;
 import com.DailyMelody.vo.MusicInfo;
 import com.DailyMelody.vo.CollectionInfo;
 import com.DailyMelody.po.Music;
 import com.DailyMelody.po.Collection;
+import com.DailyMelody.vo.WeatherInfo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +31,6 @@ public class MusicServiceImpl implements MusicService {
 
     @Autowired
     private CollectionRepository collectionRepository;
-
-
 
     @Override
     public void createMusic(MusicInfo musicInfo) {
@@ -74,50 +74,55 @@ public class MusicServiceImpl implements MusicService {
     }
 
     @Override
-    public MusicInfo getRecommendedMusic() {
-        String weather = getWeather();
+    public MusicDetails getRecommendedMusic() {
+        WeatherInfo weather = getWeather();
         String date = getCurrentDate();
         String festival = getFestival();
 
         // 根据天气、日期和节日推荐歌曲
-        Music music = recommendMusicBasedOnConditions(weather, date, festival);
+        Music music = recommendMusicBasedOnConditions(weather.weather, date, festival);
         if (music == null) {
             throw new RuntimeException("No suitable music found");
         }
 
         // 返回 MusicInfo
-        return music.toVO();
+        return new MusicDetails(music.toVO(), weather, festival, date);
     }
 
-    private String getWeather() {
-        // 调用天气 API
-        Map<String, String> weatherMap = new HashMap<>();
-        weatherMap.put("晴", "sunny");
-        weatherMap.put("雨", "rainy");
-        weatherMap.put("雪", "snowy");
-        weatherMap.put("多云", "cloudy");
-        weatherMap.put("阴", "overcast");
-        weatherMap.put("雾", "foggy");
-        String weather = "";
-        try{
-            URL url = new URL("http://t.weather.itboy.net/api/weather/city/101250601");
-            InputStreamReader isReader =  new InputStreamReader(url.openStream(),"UTF-8");//“UTF- 8”万国码，可以显示中文，这是为了防止乱码
-            BufferedReader br = new BufferedReader(isReader);//采用缓冲式读入
-            String str;
-            while((str = br.readLine()) != null){
-                String regex="\\p{Punct}+";
-                String digit[]=str.split(regex);
-//                System.out.println('\n'+"天气:"+digit[67]+" "+digit[63]+digit[65]);
-                weather = digit[67];
-            }
-            br.close();
-            isReader.close();
-        }
-        catch(Exception exp){
-            System.out.println(exp);
+    public WeatherInfo getWeather() {
+        String url = "http://t.weather.itboy.net/api/weather/city/101190101";
+
+        RestTemplate restTemplate = new RestTemplate();
+        Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+
+        if (response == null || !response.get("status").equals(200)) {
+            throw new RuntimeException("Failed to fetch weather data");
         }
 
-        return weatherMap.getOrDefault(weather, "unknown");
+        Map<String, Object> data = (Map<String, Object>) response.get("data");
+        if (data == null) {
+            throw new RuntimeException("Weather data is null");
+        }
+
+        Map<String, Object> todayForecast = ((List<Map<String, Object>>) data.get("forecast")).get(0);
+
+        String temperatureLow = ((String) todayForecast.get("low")).replace("低温 ", "").replace("℃", "").trim();
+        String temperatureHigh = ((String) todayForecast.get("high")).replace("高温 ", "").replace("℃", "").trim();
+        String weather = (String) todayForecast.get("type");
+        String fx = (String) todayForecast.get("fx");
+        String fl = (String) todayForecast.get("fl");
+        String sunrise = (String) todayForecast.get("sunrise");
+        String sunset = (String) todayForecast.get("sunset");
+
+        System.out.println("temperatureLow: " + temperatureLow);
+        System.out.println("temperatureHigh: " + temperatureHigh);
+        System.out.println("weather: " + weather);
+        System.out.println("fx: " + fx);
+        System.out.println("fl: " + fl);
+        System.out.println("sunrise: " + sunrise);
+        System.out.println("sunset: " + sunset);
+
+        return new WeatherInfo(temperatureLow, temperatureHigh, weather, fx, fl, sunrise, sunset);
     }
 
     private String getCurrentDate() {
@@ -148,7 +153,6 @@ public class MusicServiceImpl implements MusicService {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://api.apihubs.cn/holiday/get?field=date,workday,holiday,holiday_today&cn=1&size=366&year=2024";
         try {
-            // 调用 API 并获取返回结果
             String response = restTemplate.getForObject(url, String.class);
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(response);

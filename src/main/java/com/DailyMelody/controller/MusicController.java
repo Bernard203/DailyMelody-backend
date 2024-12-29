@@ -1,6 +1,7 @@
 package com.DailyMelody.controller;
 
 import com.DailyMelody.service.MusicService;
+import com.DailyMelody.vo.MusicDetails;
 import com.DailyMelody.vo.MusicInfo;
 import com.DailyMelody.vo.CollectionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class MusicController {
     }
 
     @GetMapping("/getMusic")
-    public MusicInfo getMusic() {
+    public MusicDetails getMusic() {
         return musicService.getRecommendedMusic();
     }
 
