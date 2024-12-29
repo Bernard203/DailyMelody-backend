@@ -54,8 +54,13 @@ public class MusicServiceImpl implements MusicService {
     public void addCollection(CollectionInfo collectionInfo) {
         Collection collection = new Collection();
         collection.setMusicId(collectionInfo.getMusicId());
-        collection.setDate(collectionInfo.getDate());
+        collection.setMusicName(collectionInfo.getMusicName());
         collection.setFestival(collectionInfo.getFestival());
+        collection.setImgUrl(collectionInfo.getImgUrl());
+        collection.setSunSet(collectionInfo.getSunSet());
+        collection.setSunRise(collectionInfo.getSunRise());
+        collection.setDate(collectionInfo.getDate());
+        collection.setSentence(collectionInfo.getSentence());
         collection.setThought(collectionInfo.getThought());
         collectionRepository.save(collection);
     }
