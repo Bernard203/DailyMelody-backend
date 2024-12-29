@@ -159,7 +159,7 @@ public class MusicServiceImpl implements MusicService {
 
             // 检查返回状态码
             if (rootNode.get("code").asInt() != 0) {
-                return "Unknown Festival";
+                return "";
             }
 
             // 解析 "data -> list" 节点，找到当天的节日信息
