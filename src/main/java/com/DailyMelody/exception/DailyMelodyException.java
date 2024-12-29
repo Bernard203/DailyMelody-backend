@@ -25,16 +25,4 @@ public class DailyMelodyException extends RuntimeException{
     public static DailyMelodyException fileUploadFail(){
         return new DailyMelodyException("文件上传失败!");
     }
-
-    public static DailyMelodyException nameAlreadyExists(){
-        return new DailyMelodyException("名称已经存在!");
-    }
-
-    public static DailyMelodyException fullReductionCouponError(){
-        return new DailyMelodyException("满减券设置错误！");
-    }
-
-    public static DailyMelodyException payError(){
-        return new DailyMelodyException("支付失败！");
-    }
 }

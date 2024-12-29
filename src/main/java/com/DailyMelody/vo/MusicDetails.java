@@ -1,5 +1,15 @@
 package com.DailyMelody.vo;
 
+import com.DailyMelody.po.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Date;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class MusicDetails {
     private MusicInfo musicInfo;
     private WeatherInfo weatherInfo;

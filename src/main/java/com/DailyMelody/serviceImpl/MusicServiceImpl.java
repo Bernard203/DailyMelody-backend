@@ -113,14 +113,14 @@ public class MusicServiceImpl implements MusicService {
         String fl = (String) todayForecast.get("fl");
         String sunrise = (String) todayForecast.get("sunrise");
         String sunset = (String) todayForecast.get("sunset");
-
-        System.out.println("temperatureLow: " + temperatureLow);
-        System.out.println("temperatureHigh: " + temperatureHigh);
-        System.out.println("weather: " + weather);
-        System.out.println("fx: " + fx);
-        System.out.println("fl: " + fl);
-        System.out.println("sunrise: " + sunrise);
-        System.out.println("sunset: " + sunset);
+//
+//        System.out.println("temperatureLow: " + temperatureLow);
+//        System.out.println("temperatureHigh: " + temperatureHigh);
+//        System.out.println("weather: " + weather);
+//        System.out.println("fx: " + fx);
+//        System.out.println("fl: " + fl);
+//        System.out.println("sunrise: " + sunrise);
+//        System.out.println("sunset: " + sunset);
 
         return new WeatherInfo(temperatureLow, temperatureHigh, weather, fx, fl, sunrise, sunset);
     }
