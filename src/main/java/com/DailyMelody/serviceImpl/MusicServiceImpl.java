@@ -130,8 +130,21 @@ public class MusicServiceImpl implements MusicService {
         return java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd"));
     }
 
-    private String getFestival() {
-        // 根据日期判断节日，这里模拟返回
+    public String getFestival() {
+        // 根据日期判断节日，因为节日太多，目前仅map部分节日的英文名
+        Map<String, String> festivalMap = new HashMap<>();
+        festivalMap.put("春节", "Spring Festival");
+        festivalMap.put("元旦", "New Year's Day");
+        festivalMap.put("国庆节", "National Day");
+        festivalMap.put("中秋节", "Mid-Autumn Festival");
+        festivalMap.put("端午节", "Dragon Boat Festival");
+        festivalMap.put("清明节", "Tomb-sweeping Day");
+        festivalMap.put("劳动节", "Labour Day");
+        festivalMap.put("儿童节", "Children's Day");
+        festivalMap.put("重阳节", "Double Ninth Festival");
+        festivalMap.put("愚人节", "April Fool's Day");
+        festivalMap.put("圣诞节", "Christmas");
+        festivalMap.put("植树节", "Arbor Day");
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://api.apihubs.cn/holiday/get?field=date,workday,holiday,holiday_today&cn=1&size=366&year=2024";
         try {
@@ -151,7 +164,8 @@ public class MusicServiceImpl implements MusicService {
 
             for (JsonNode node : listNode) {
                 if (node.get("date").asText().equals(currentDate)) {
-                    return node.get("holiday_today_cn").asText(); // 返回节日中文名
+                    // 返回部分节日的英文名，如果没有找到则返回 "Unknown Festival"
+                    return festivalMap.getOrDefault(node.get("holiday").asText(), "Unknown Festival");
                 }
             }
             return "No Festival"; // 如果没有找到节日，返回默认值
@@ -163,23 +177,39 @@ public class MusicServiceImpl implements MusicService {
     }
 
     private Music recommendMusicBasedOnConditions(String weather, String date, String festival) {
-        // 示例逻辑：根据条件筛选音乐（这里直接从数据库随机选一首）
-        List<Music> musicList = musicRepository.findAll();
-
-        if (festival.equals("Christmas")) {
-            return musicList.stream()
-                    .filter(music -> music.getName().contains("Christmas"))
-                    .findFirst()
-                    .orElse(null);
-        } else if (weather.equals("Sunny")) {
-            return musicList.stream()
-                    .filter(music -> music.getName().contains("Sunny"))
-                    .findFirst()
-                    .orElse(null);
-        } else {
-            // 默认返回第一首
-            return musicList.isEmpty() ? null : musicList.get(0);
+        if (!"unknown".equals(weather) && !"Unknown Festival".equals(festival)) {
+            List<Music> weatherAndFestivalMusic = musicRepository.findByNameContainingBothKeywords(weather, festival);
+            if (!weatherAndFestivalMusic.isEmpty()) {
+                return weatherAndFestivalMusic.get(0); // 返回匹配天气和节日关键词的第一首音乐
+            }
         }
+
+        if (!"Unknown Festival".equals(festival) && !"No Festival".equals(festival)) {
+            List<Music> festivalMusic = musicRepository.findByKeywordContaining(festival);
+            if (!festivalMusic.isEmpty()) {
+                return festivalMusic.get(0); // 返回匹配节日关键词的第一首音乐
+            }
+        }
+
+        if (!"unknown".equals(weather)) {
+            List<Music> weatherMusic = musicRepository.findByKeywordContaining(weather);
+            if (!weatherMusic.isEmpty()) {
+                return weatherMusic.get(0); // 返回匹配天气关键词的第一首音乐
+            }
+        }
+
+        List<Music> defaultMusic = musicRepository.findByNameContainingBothKeywords("love", "sunshine");
+        if (!defaultMusic.isEmpty()) {
+            return defaultMusic.get(0); // 返回匹配的第一首音乐
+        }
+
+        // 如果没有任何匹配项，返回数据库中的第一首歌曲作为默认推荐
+        List<Music> allMusic = musicRepository.findAll();
+        if (!allMusic.isEmpty()) {
+            return allMusic.get(0);
+        }
+
+        return null;
     }
 }
 

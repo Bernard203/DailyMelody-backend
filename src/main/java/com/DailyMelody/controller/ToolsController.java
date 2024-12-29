@@ -12,7 +12,6 @@ public class ToolsController {
     @Autowired
     ImageService imageService;
 
-
     @PostMapping("/images")
     public ResultVO<String> upload(@RequestParam MultipartFile file){
         return ResultVO.buildSuccess(imageService.upload(file));

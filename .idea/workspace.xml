@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3121700-93a5-4729-aafe-f7b0a9f11573" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/DailyMelody/MusicServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/configure/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/configure/LoginInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/MusicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/MusicServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +44,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.BlueWhaleApplication.executor": "Run",
+    "JUnit.MusicServiceImplTest.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -70,7 +74,22 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.MusicServiceImplTest">
+    <configuration name="MusicServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DailyMelody-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.DailyMelody.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.DailyMelody" />
+      <option name="MAIN_CLASS_NAME" value="com.DailyMelody.MusicServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DailymelodyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="DailyMelody-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.DailyMelody.DailymelodyApplication" />
@@ -86,6 +105,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MusicServiceImplTest" />
         <item itemvalue="Spring Boot.DailymelodyApplication" />
       </list>
     </recent_temporary>
@@ -120,7 +140,7 @@
       <workItem from="1735321249022" duration="242000" />
       <workItem from="1735351034928" duration="2043000" />
       <workItem from="1735355759667" duration="8085000" />
-      <workItem from="1735405131727" duration="6589000" />
+      <workItem from="1735405131727" duration="7342000" />
     </task>
     <servers />
   </component>
