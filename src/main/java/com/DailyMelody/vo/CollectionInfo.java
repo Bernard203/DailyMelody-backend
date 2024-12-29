@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CollectionInfo {
+    private Long id;
     private Long musicId;
     private String musicName;
     private String date;
