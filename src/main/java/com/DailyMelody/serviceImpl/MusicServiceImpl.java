@@ -7,8 +7,11 @@ import com.DailyMelody.vo.MusicInfo;
 import com.DailyMelody.vo.CollectionInfo;
 import com.DailyMelody.po.Music;
 import com.DailyMelody.po.Collection;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -72,7 +75,6 @@ public class MusicServiceImpl implements MusicService {
 
     @Override
     public MusicInfo getRecommendedMusic() {
-        // 获取天气信息（这里假设调用了外部天气 API）
         String weather = getWeather();
         String date = getCurrentDate();
         String festival = getFestival();
@@ -123,9 +125,41 @@ public class MusicServiceImpl implements MusicService {
         return java.time.LocalDate.now().toString();
     }
 
+    private String getCurrentDateFormatted() {
+        // 将当前日期格式化为 "yyyyMMdd" 格式（如 20241229）
+        return java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd"));
+    }
+
     private String getFestival() {
         // 根据日期判断节日，这里模拟返回
-        return "Christmas";
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://api.apihubs.cn/holiday/get?field=date,workday,holiday,holiday_today&cn=1&size=366&year=2024";
+        try {
+            // 调用 API 并获取返回结果
+            String response = restTemplate.getForObject(url, String.class);
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootNode = objectMapper.readTree(response);
+
+            // 检查返回状态码
+            if (rootNode.get("code").asInt() != 0) {
+                return "Unknown Festival";
+            }
+
+            // 解析 "data -> list" 节点，找到当天的节日信息
+            JsonNode listNode = rootNode.get("data").get("list");
+            String currentDate = getCurrentDateFormatted(); // 获取当前日期（格式：20241229）
+
+            for (JsonNode node : listNode) {
+                if (node.get("date").asText().equals(currentDate)) {
+                    return node.get("holiday_today_cn").asText(); // 返回节日中文名
+                }
+            }
+            return "No Festival"; // 如果没有找到节日，返回默认值
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Unknown Festival"; // 如果调用失败或解析错误，返回默认值
+        }
     }
 
     private Music recommendMusicBasedOnConditions(String weather, String date, String festival) {

@@ -5,81 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3121700-93a5-4729-aafe-f7b0a9f11573" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/DailymelodyApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/configure/AlipayTools.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/configure/CorsFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/configure/LoginInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/configure/MyWebMvcConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/AliPayController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/CouponController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/MusicController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/OrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/ProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/StoreController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/ToolsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/enums/CategoryEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/enums/CouponTypeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/enums/OrderStatusEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/enums/OrderTypeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/enums/RoleEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/exception/DailyMelodyException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Collection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Coupon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/CouponGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Music.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Store.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/CollectionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/CouponGroupRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/CouponRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/MusicRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/OrderRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/StoreRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/CouponService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/ExcelService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/ImageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/MusicService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/OrderService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/StoreService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/CouponServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/ExcelServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/ImageServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/MusicServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/OrderServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/ProductServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/StoreServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/strategy/CalculateStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/strategy/Context.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/strategy/FillReductionCouponCalculateStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/strategy/SpecialCouponCalculateStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/util/ExcelUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/util/OssUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/util/SecurityUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/util/TokenUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/CollectionInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/CommentVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/CouponGroupVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/CouponVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/MusicInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/OrderVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/ProductVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/ResultVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/StoreVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/UserVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/DailyMelody/DailymelodyApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/MusicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/MusicServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +52,7 @@
     "Spring Boot.DailymelodyApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/bernardette/codes/DailyMelody/DailyMelody-backend",
+    "last_opened_file_path": "/home/bernardette/codes/DailyMelody/new/DailyMelody-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -194,6 +120,7 @@
       <workItem from="1735321249022" duration="242000" />
       <workItem from="1735351034928" duration="2043000" />
       <workItem from="1735355759667" duration="8085000" />
+      <workItem from="1735405131727" duration="6589000" />
     </task>
     <servers />
   </component>
