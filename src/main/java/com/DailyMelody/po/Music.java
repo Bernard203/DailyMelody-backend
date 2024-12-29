@@ -44,7 +44,7 @@ public class Music {
 
     // 将当前实体对象转换为 VO
     public MusicInfo toVO() {
-        return new MusicInfo(this.name, this.sentence, this.musicUrl, this.lrcUrl, this.imgUrl, this.keyword);
+        return new MusicInfo(this.id, this.name, this.sentence, this.musicUrl, this.lrcUrl, this.imgUrl, this.keyword);
     }
 }
 

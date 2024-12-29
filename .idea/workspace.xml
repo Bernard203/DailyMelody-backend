@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a90e3cff-ce5e-4445-8ec0-ef3b9b8d4f71" name="Changes" comment="" />
+    <list default="true" id="a90e3cff-ce5e-4445-8ec0-ef3b9b8d4f71" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/po/Music.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/MusicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/MusicInfo.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +124,7 @@
       <option name="presentableId" value="Default" />
       <updated>1735469046954</updated>
       <workItem from="1735469048045" duration="7636000" />
-      <workItem from="1735478500930" duration="702000" />
+      <workItem from="1735478500930" duration="1151000" />
     </task>
     <servers />
   </component>

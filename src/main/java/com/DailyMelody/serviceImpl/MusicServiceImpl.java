@@ -47,7 +47,7 @@ public class MusicServiceImpl implements MusicService {
     @Override
     public MusicInfo getMusicById(Long musicId) {
         Music music = musicRepository.findById(musicId).orElseThrow(() -> new RuntimeException("Music not found"));
-        return new MusicInfo(music.getName(), music.getSentence(), music.getMusicUrl(), music.getLrcUrl(), music.getImgUrl(), music.getKeyword());
+        return new MusicInfo(music.getId(), music.getName(), music.getSentence(), music.getMusicUrl(), music.getLrcUrl(), music.getImgUrl(), music.getKeyword());
     }
 
     @Override
