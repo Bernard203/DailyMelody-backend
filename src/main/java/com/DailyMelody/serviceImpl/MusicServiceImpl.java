@@ -80,7 +80,7 @@ public class MusicServiceImpl implements MusicService {
         String festival = getFestival();
 
         // 根据天气、日期和节日推荐歌曲
-        Music music = recommendMusicBasedOnConditions(weather.weather, date, festival);
+        Music music = recommendMusicBasedOnConditions(weather.weather, festival);
         if (music == null) {
             throw new RuntimeException("No suitable music found");
         }
@@ -180,7 +180,7 @@ public class MusicServiceImpl implements MusicService {
         }
     }
 
-    private Music recommendMusicBasedOnConditions(String weather, String date, String festival) {
+    private Music recommendMusicBasedOnConditions(String weather, String festival) {
         if (!"unknown".equals(weather) && !"".equals(festival)) {
             List<Music> weatherAndFestivalMusic = musicRepository.findByNameContainingBothKeywords(weather, festival);
             if (!weatherAndFestivalMusic.isEmpty()) {
@@ -202,7 +202,7 @@ public class MusicServiceImpl implements MusicService {
             }
         }
 
-        List<Music> defaultMusic = musicRepository.findByNameContainingBothKeywords("love", "sunshine");
+        List<Music> defaultMusic = musicRepository.findByNameContainingBothKeywords(weather, festival);
         if (!defaultMusic.isEmpty()) {
             return defaultMusic.get(0); // 返回匹配的第一首音乐
         }
