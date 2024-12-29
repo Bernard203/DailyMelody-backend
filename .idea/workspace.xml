@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a90e3cff-ce5e-4445-8ec0-ef3b9b8d4f71" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/MusicDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/vo/WeatherInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/DailyMelody/MusicServiceImplTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/MusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/controller/MusicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/MusicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/service/MusicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/MusicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DailyMelody/serviceImpl/MusicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/DailyMelody/MusicServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/DailyMelody/MusicServiceImplTest0.java" afterDir="false" />
-    </list>
+    <list default="true" id="a90e3cff-ce5e-4445-8ec0-ef3b9b8d4f71" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +42,7 @@
     "JUnit.MusicServiceImplTest1.testGetWeather.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DailymelodyApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/bernardette/codes/DailyMelody/tmp/DailyMelody-backend",
@@ -62,7 +54,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.MusicServiceImplTest1">
+  <component name="RunManager" selected="Spring Boot.DailymelodyApplication">
     <configuration name="MusicServiceImplTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DailyMelody-backend" />
       <extension name="coverage">
@@ -124,7 +116,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1735469046954</updated>
-      <workItem from="1735469048045" duration="6196000" />
+      <workItem from="1735469048045" duration="7377000" />
     </task>
     <servers />
   </component>

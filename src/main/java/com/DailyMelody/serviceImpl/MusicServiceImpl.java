@@ -63,14 +63,14 @@ public class MusicServiceImpl implements MusicService {
     @Override
     public List<CollectionInfo> getCollectionInfo() {
         return collectionRepository.findAll().stream()
-                .map(collection -> new CollectionInfo(collection.getMusicId(), collection.getDate(), collection.getFestival(), collection.getThought()))
+                .map(collection -> new CollectionInfo(collection.getMusicId(), collection.getMusicName(), collection.getDate(), collection.getFestival(), collection.getThought(), collection.getImgUrl(), collection.getSunSet(), collection.getSunRise(), collection.getSentence()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public CollectionInfo getCollectionById(Long collectionId) {
         Collection collection = collectionRepository.findById(collectionId).orElseThrow(() -> new RuntimeException("Collection not found"));
-        return new CollectionInfo(collection.getMusicId(), collection.getDate(), collection.getFestival(), collection.getThought());
+        return new CollectionInfo(collection.getMusicId(), collection.getMusicName(), collection.getDate(), collection.getFestival(), collection.getThought(), collection.getImgUrl(), collection.getSunSet(), collection.getSunRise(), collection.getSentence());
     }
 
     @Override
