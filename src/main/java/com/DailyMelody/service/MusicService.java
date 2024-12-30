@@ -13,5 +13,6 @@ public interface MusicService {
     void addCollection(CollectionInfo collectionInfo);
     List<CollectionInfo> getCollectionInfo();
     CollectionInfo getCollectionById(Long collectionId);
+    String getLrc(String lrcUrl);
 }
 

@@ -45,5 +45,10 @@ public class MusicController {
     public CollectionInfo getCollectionById(@PathVariable Long collectionId) {
         return musicService.getCollectionById(collectionId);
     }
+
+    @GetMapping("/lrc/{lrcUrl}")
+    public String getLrc(@RequestParam String lrcUrl) {
+        return musicService.getLrc(lrcUrl);
+    }
 }
 

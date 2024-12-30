@@ -220,5 +220,22 @@ public class MusicServiceImpl implements MusicService {
 
         return null;
     }
+
+    @Override
+    public String getLrc(String lrcUrl) {
+        try {
+            URL url = new URL(lrcUrl);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuilder lrc = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lrc.append(line).append("\n");
+            }
+            return lrc.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 }
 
