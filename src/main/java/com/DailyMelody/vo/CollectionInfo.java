@@ -16,4 +16,5 @@ public class CollectionInfo {
     private String sunSet;
     private String sunRise;
     private String sentence;
+    private String weather;
 }

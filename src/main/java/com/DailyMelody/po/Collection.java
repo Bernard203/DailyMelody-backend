@@ -54,8 +54,12 @@ public class Collection {
     @Column(name = "sentence")
     private String sentence;
 
+    @Basic
+    @Column(name = "weather")
+    private String weather;
+
     // 将当前实体对象转换为 VO
     public CollectionInfo toVO() {
-        return new CollectionInfo(this.id, this.musicId, this.musicName, this.date, this.festival, this.thought, this.imgUrl, this.sunSet, this.sunRise, this.sentence);
+        return new CollectionInfo(this.id, this.musicId, this.musicName, this.date, this.festival, this.thought, this.imgUrl, this.sunSet, this.sunRise, this.sentence, this.weather);
     }
 }
